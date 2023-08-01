@@ -1,0 +1,39 @@
+/* Style.module.css */
+.containerWrapper {
+  /* Center the child elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Assuming you want the containers to take the full viewport height */
+  flex-direction: column;
+}
+
+.container {
+  /* Add styles for the second container here */
+  color: blue;
+  font-size: 20px;
+  font-weight: normal;
+  padding: 10px;
+  margin: 10px 0; /* Add some vertical margin between the containers */
+
+  /* Add black border to the input box */
+  border: 1px solid black;
+
+  /* Make the textbox wider */
+  width: 500px; /* Adjust this value as needed */
+  box-sizing: border-box; /* Include border and padding in the width */
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+/* Center-align the placeholder text */
+.container input::placeholder {
+  text-align: center;
+}
+
+.Button {
+  background-color: #428ae3;
+  color: #fff;
+  margin: 10px 0;
+}
