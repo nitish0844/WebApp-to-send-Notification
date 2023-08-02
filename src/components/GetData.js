@@ -85,24 +85,24 @@ const GetData = () => {
 
   const userCollectedRef = collection(db, "UserFcmToken");
 
+  const getUser = async () => {
+    try {
+      const querySnapshot = await getDocs(userCollectedRef);
+      const tokens = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const fcmToken = data.FcmToken;
+        tokens.push(fcmToken);
+      });
+
+      // Set the FCM tokens in the state
+      setRegistrationTokens(tokens);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const querySnapshot = await getDocs(userCollectedRef);
-        const tokens = [];
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const fcmToken = data.FcmToken;
-          tokens.push(fcmToken);
-        });
-
-        // Set the FCM tokens in the state
-        setRegistrationTokens(tokens);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-
     getUser();
   }, []);
 
