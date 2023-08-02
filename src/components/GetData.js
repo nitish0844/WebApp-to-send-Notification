@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
 import styles from "./Style.module.css"; // Import the CSS module
@@ -103,7 +104,9 @@ const GetData = () => {
     };
 
     getUser();
-  }, [userCollectedRef]);
+  }, []);
+
+  console.log(registrationTokens);
 
   return (
     <div className={styles.containerWrapper}>
